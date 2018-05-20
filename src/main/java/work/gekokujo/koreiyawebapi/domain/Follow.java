@@ -1,6 +1,6 @@
 package work.gekokujo.koreiyawebapi.domain;
 
-import com.sun.javafx.beans.IDProperty;
+
 import lombok.Data;
 
 import javax.persistence.Entity;
@@ -10,24 +10,11 @@ import javax.persistence.Id;
 
 @Entity
 @Data
-public class User {
+public class Follow {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
-    private String UserUniqueId;
-
-    private String name;
-
-    private String mail;
-
-    private  String password;
-
-    private String introduction;
-
-    private String userIcon;
-
+    private long followId;
+    private long inverseFollowId;
 
 }
-
 
