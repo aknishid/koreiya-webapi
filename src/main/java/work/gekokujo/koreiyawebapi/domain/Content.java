@@ -28,4 +28,5 @@ public class Content {
     private String contentImage;
 
     private Long tagId;
+
 }
