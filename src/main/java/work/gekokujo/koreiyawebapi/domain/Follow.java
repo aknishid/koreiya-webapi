@@ -14,6 +14,7 @@ public class Follow {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long followId;
+
     private long inverseFollowId;
 
 }

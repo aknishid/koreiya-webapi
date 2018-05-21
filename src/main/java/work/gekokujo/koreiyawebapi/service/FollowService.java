@@ -4,8 +4,8 @@ import java.util.List;
 
 public interface FollowService {
 
-    List<Follow> findAllContentDetail();
 
-    void
+
+
 
 }
