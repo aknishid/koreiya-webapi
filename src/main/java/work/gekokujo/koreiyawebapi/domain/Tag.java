@@ -2,10 +2,7 @@ package work.gekokujo.koreiyawebapi.domain;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Size;
 
 /**
@@ -16,9 +13,10 @@ import javax.validation.constraints.Size;
 public class Tag {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long Id;
+    private Long id;
 
-    private Long userId;
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "tagId")
+    private Content content;
     @Size(min = 1,max = 30)
     private String tagName;
 }

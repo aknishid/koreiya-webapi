@@ -2,12 +2,10 @@ package work.gekokujo.koreiyawebapi.domain;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.sql.Timestamp;
+import java.util.List;
 
 /**
  * Created by aini on 2018/05/20.
@@ -26,6 +24,6 @@ public class Content {
     private Timestamp createBy;
 
     private String contentImage;
-
-    private Long tagId;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER,mappedBy = "contentId")
+    private List<TagList> tags;
 }
