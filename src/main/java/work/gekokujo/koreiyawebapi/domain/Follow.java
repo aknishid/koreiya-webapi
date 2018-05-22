@@ -13,9 +13,11 @@ import javax.persistence.Id;
 public class Follow {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long followId;
+    private Long Id;
 
-    private long inverseFollowId;
+    private Long followId;
+
+    private Long inverseFollowId;
 
 }
 

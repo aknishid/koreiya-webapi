@@ -17,6 +17,6 @@ public class Profile {
 
     private Integer followerCount;
 
-    private Integer inverseFollowerCount
+    private Integer InverseFollowCount;
 
 }

@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import work.gekokujo.koreiyawebapi.domain.Profile;
 import work.gekokujo.koreiyawebapi.domain.User;
+import work.gekokujo.koreiyawebapi.domain.Follow;
+import work.gekokujo.koreiyawebapi.repository.FollowRepository;
 import work.gekokujo.koreiyawebapi.repository.UserRepository;
 import work.gekokujo.koreiyawebapi.service.UserService;
 
@@ -12,17 +14,29 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private FollowRepository followRepository;
 
-    //DBにアクセスしてDtoを返す
+    //DBにアクセスしてProfileを返す
+    @Override
     public Profile findProfileDetail (String userUniqueId){
-        Profile profile = userRepository.findOne(Long id);
+        User user = userRepository.findByUserUniqueIdEquals(userUniqueId);
+
+        Profile profile = new Profile();
+        profile.setId(user.getId());
+        profile.setUserUniqueId(user.getUserUniqueId());
+        profile.setUserName(user.getName());
+        profile.setIntroduction(user.getIntroduction());
+        profile.setUserIcon(user.getUserIcon());
+
+        profile.setFollowerCount(Integer(followRepository.countByFollowId(followId)));
+        profile.setInverseFollowCount(followRepository.countByFollowId());
 
         return profile;
-
     }
 
     //ユーザーの情報を登録する
-
+    @Override
     public  void registerUserDetail (User registerUser){
 
         User user = new User();
@@ -41,6 +55,7 @@ public class UserServiceImpl implements UserService {
 
 
     //followする
+
 
     //followを解除する
 

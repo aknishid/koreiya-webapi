@@ -14,6 +14,7 @@ public interface UserService {
 
     //followを解除する
 
+
     public Profile findProfileDetail (String userUniqueId);
 
     public void registerUserDetail(User registerUser);
