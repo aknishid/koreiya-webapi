@@ -29,8 +29,9 @@ public class UserServiceImpl implements UserService {
         profile.setIntroduction(user.getIntroduction());
         profile.setUserIcon(user.getUserIcon());
 
-        profile.setFollowerCount(Integer(followRepository.countByFollowId(followId)));
-        profile.setInverseFollowCount(followRepository.countByFollowId());
+        profile.setFollowerCount(followRepository.countByFollowId(user.getId()));
+
+        profile.setInverseFollowerCount(followRepository.countByIntegerFollowId(user.getId()));
 
         return profile;
     }

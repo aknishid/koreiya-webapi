@@ -15,8 +15,8 @@ public class Profile {
 
     private String userIcon;
 
-    private Integer followerCount;
+    private Long followerCount;
 
-    private Integer InverseFollowCount;
+    private Long InverseFollowerCount;
 
 }
