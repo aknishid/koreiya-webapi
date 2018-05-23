@@ -16,14 +16,15 @@ public class Content {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Size(min = 0,max = 140)
+    @Size(min = 1,max = 140)
     private String content;
-
-    private Long userId;
 
     private Timestamp createBy;
 
     private String contentImage;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER,mappedBy = "contentId")
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY,mappedBy = "contentId")
     private List<TagList> tags;
+
+    private User user;
 }

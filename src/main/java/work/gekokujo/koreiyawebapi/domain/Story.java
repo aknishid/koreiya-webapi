@@ -12,12 +12,12 @@ import java.util.List;
 public class Story {
     private Long userId;
     private String UserUniquedId;
-    private String content;
+    private String contentText;
     private Timestamp createBy;
     private String contentImage;
-    private List<Tag> tags;
+    //content.getIdと同様
     private Long IKnowListId;
-    private Integer IKnowListCount;
+    private Long IKnowListCount;
     private String userName;
-    private Long contentId;
+    private List<Tag> tags;
 }

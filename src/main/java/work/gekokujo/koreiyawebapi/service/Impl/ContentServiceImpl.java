@@ -1,12 +1,11 @@
 package work.gekokujo.koreiyawebapi.service.Impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
-import work.gekokujo.koreiyawebapi.domain.Content;
-import work.gekokujo.koreiyawebapi.domain.Story;
-import work.gekokujo.koreiyawebapi.domain.Tag;
-import work.gekokujo.koreiyawebapi.domain.User;
+import work.gekokujo.koreiyawebapi.domain.*;
 import work.gekokujo.koreiyawebapi.repository.ContentRepository;
+import work.gekokujo.koreiyawebapi.repository.IKnowListRepository;
 import work.gekokujo.koreiyawebapi.repository.TagRepository;
 import work.gekokujo.koreiyawebapi.repository.UserRepository;
 import work.gekokujo.koreiyawebapi.service.ContentService;
@@ -27,23 +26,23 @@ public class ContentServiceImpl implements ContentService {
     @Autowired
     private TagRepository tagRepository;
 
-    public List<Story> findOneStory(String UserUniqueId) throws Exception {
-        Story story =  new Story();
-        User user = userRepository.findByUniquedId();
-        if (user == null){
-            throw new Exception();
-        }
-        List<Content> contents = contentRepository.findByUserId(user.getId());
-        for(Content content : contents){
-            story.setUserId(user.getId());
-            story.setUserUniquedId(user.getUserUniqueId());
-            story.setContent(content.getContent());
-            story.setCreateBy(content.getCreateBy());
-            story.setContentImage(content.getContentImage());
-            List<Tag> tags = tagRepository.findBycontent.getTagId();
-            story.setTags();
-        }
+    @Autowired
+    private IKnowListRepository iKnowListRepository;
 
+    public Story findOneStory(Long contentId){
+        Content content = contentRepository.findOne(contentId);
+        Long iknowListCount = iKnowListRepository.countByContentId(contentId);
+        Story story = new Story();
 
+        story.setUserId(content.getUser().getId());
+        story.setUserUniquedId(content.getUser().getUserUniqueId());
+        story.setContentText(content.getContent());
+        story.setCreateBy(content.getCreateBy());
+        story.setContentImage(content.getContentImage());
+        story.setIKnowListId(content.getId());
+        story.setIKnowListCount(iknowListCount);
+        story.setTags(null);
+
+        return story;
     }
 }
