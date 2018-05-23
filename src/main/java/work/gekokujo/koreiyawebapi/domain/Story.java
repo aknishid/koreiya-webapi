@@ -15,8 +15,8 @@ public class Story {
     private String contentText;
     private Timestamp createBy;
     private String contentImage;
-    //content.getIdと同様
-    private Long IKnowListId;
+    //content.getIdと同様，IKnowListIdとも同様
+    private Long id;
     private Long IKnowListCount;
     private String userName;
     private List<Tag> tags;
