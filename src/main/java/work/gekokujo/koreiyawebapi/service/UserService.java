@@ -19,6 +19,10 @@ public interface UserService {
 
     public void registerUserDetail(User registerUser);
 
+    public void activeRelationshipCreate(Long followId, Long integerFollowId);
+
+    public void passiveRelationshipCreate(Long followId, Long inverseFollowId);
+
 }
 
 
