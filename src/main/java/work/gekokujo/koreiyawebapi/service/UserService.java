@@ -15,13 +15,10 @@ public interface UserService {
     //followを解除する
 
 
-    public Profile findProfileDetail (String userUniqueId);
+    Profile findProfileDetail (String userUniqueId);
 
-    public void registerUserDetail(User registerUser);
+    void registerUserDetail(User registerUser);
 
-    public void activeRelationshipCreate(Long followId, Long integerFollowId);
-
-    public void passiveRelationshipCreate(Long followId, Long inverseFollowId);
 
 }
 

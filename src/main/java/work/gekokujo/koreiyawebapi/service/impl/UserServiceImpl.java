@@ -54,23 +54,5 @@ public class UserServiceImpl implements UserService {
 
     }
 
-    //followする
-    @Override
-    public void activeRelationshipCreate(Long followId, Long inverseFollowId){
-        Follow follow = new Follow();
 
-        follow.setFollowId(followId);
-        follow.setInverseFollowId(inverseFollowId);
-        followRepository.save(follow);
-    }
-
-
-
-    //followを解除する
-    @Override
-    public void passiveRelationshipCreate(Long followId, Long inverseFollowId){
-
-        Follow follow = followRepository.findByFollowIdAndInverseFollowId(followId, inverseFollowId);
-        followRepository.delete(follow);
-    }
 }
