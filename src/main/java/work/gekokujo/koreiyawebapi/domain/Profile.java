@@ -5,8 +5,6 @@ import lombok.Data;
 @Data
 public class Profile {
 
-    private Long id;
-
     private String userUniqueId;
 
     private String userName;

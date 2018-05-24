@@ -12,9 +12,6 @@ import javax.persistence.Id;
 @Data
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
     private String UserUniqueId;
 
     private String name;

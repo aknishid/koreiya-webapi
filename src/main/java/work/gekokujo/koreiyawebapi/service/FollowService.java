@@ -4,9 +4,9 @@ import java.util.List;
 
 public interface FollowService {
 
-    void activeRelationshipCreate(Long followId, Long integerFollowId);
+    void activeRelationshipCreate(String followId, String integerFollowId);
 
-    void passiveRelationshipCreate(Long followId, Long inverseFollowId);
+    void passiveRelationshipCreate(String followId, String inverseFollowId);
 
 
 

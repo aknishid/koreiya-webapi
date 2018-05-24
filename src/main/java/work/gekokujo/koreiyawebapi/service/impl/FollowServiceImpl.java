@@ -14,7 +14,7 @@ public class FollowServiceImpl implements FollowService {
 
     //followする
     @Override
-    public void activeRelationshipCreate(Long followId, Long inverseFollowId){
+    public void activeRelationshipCreate(String followId, String inverseFollowId){
         Follow follow = new Follow();
 
         follow.setFollowId(followId);
@@ -26,7 +26,7 @@ public class FollowServiceImpl implements FollowService {
 
     //followを解除する
     @Override
-    public void passiveRelationshipCreate(Long followId, Long inverseFollowId){
+    public void passiveRelationshipCreate(String followId, String inverseFollowId){
 
         Follow follow = followRepository.findByFollowIdAndInverseFollowId(followId, inverseFollowId);
         followRepository.delete(follow);

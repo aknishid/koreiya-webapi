@@ -5,11 +5,11 @@ import work.gekokujo.koreiyawebapi.domain.Follow;
 
 public interface FollowRepository extends JpaRepository<Follow, Long> {
 
-     Long countByFollowId(Long followId);
+     Long countByFollowId(String followId);
 
-     Long countByIntegerFollowId(Long IntegerFollowId);
+     Long countByIntegerFollowId(String IntegerFollowId);
 
-     Follow findByFollowIdAndInverseFollowId(Long followId, Long inverseFollowId);
+     Follow findByFollowIdAndInverseFollowId(String followId, String inverseFollowId);
 
 
 }

@@ -23,15 +23,14 @@ public class UserServiceImpl implements UserService {
         User user = userRepository.findByUserUniqueIdEquals(userUniqueId);
 
         Profile profile = new Profile();
-        profile.setId(user.getId());
         profile.setUserUniqueId(user.getUserUniqueId());
         profile.setUserName(user.getName());
         profile.setIntroduction(user.getIntroduction());
         profile.setUserIcon(user.getUserIcon());
 
-        profile.setFollowerCount(followRepository.countByFollowId(user.getId()));
+        profile.setFollowerCount(followRepository.countByFollowId(user.getUserUniqueId()));
 
-        profile.setInverseFollowerCount(followRepository.countByIntegerFollowId(user.getId()));
+        profile.setInverseFollowerCount(followRepository.countByIntegerFollowId(user.getUserUniqueId()));
 
         return profile;
     }
@@ -42,7 +41,6 @@ public class UserServiceImpl implements UserService {
 
         User user = new User();
 
-        user.setId(registerUser.getId());
         user.setUserUniqueId(registerUser.getUserUniqueId());
         user.setName(registerUser.getName());
         user.setMail(registerUser.getMail());

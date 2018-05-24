@@ -15,9 +15,9 @@ public class Follow {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long Id;
 
-    private Long followId;
+    private String followId;
 
-    private Long inverseFollowId;
+    private String inverseFollowId;
 
 }
 
